@@ -73,6 +73,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Cavalier.cs" />
+    <Compile Include="Model\Fou.cs" />
+    <Compile Include="Model\Piece.cs" />
+    <Compile Include="Model\Reine.cs" />
+    <Compile Include="Model\Roi.cs" />
+    <Compile Include="Model\Tour.cs" />
+    <Compile Include="Pion.cs" />
+    <Compile Include="Plateau.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
