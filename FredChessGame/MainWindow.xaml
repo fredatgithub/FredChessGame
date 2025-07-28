@@ -27,7 +27,7 @@
           <Border BorderBrush="Black" BorderThickness="1"
         Background="{Binding PositionKey, Converter={StaticResource CaseColorConverter}}">
             <TextBlock Text="{Binding Symbole}"
-                                   FontSize="32"
+                                   FontSize="48"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
           </Border>
