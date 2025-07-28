@@ -59,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\CaseColorConverter.cs" />
+    <Compile Include="ViewModel\CaseViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -76,6 +79,7 @@
     <Compile Include="Model\Cavalier.cs" />
     <Compile Include="Model\Fou.cs" />
     <Compile Include="Model\Piece.cs" />
+    <Compile Include="Model\Plateau.cs" />
     <Compile Include="Model\Reine.cs" />
     <Compile Include="Model\Roi.cs" />
     <Compile Include="Model\Tour.cs" />
