@@ -1,1 +1,1 @@
-# FredChessGame
+# Fred Chess Game
