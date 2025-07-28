@@ -7,36 +7,36 @@
         xmlns:local="clr-namespace:FredChessGame.Converters"
         mc:Ignorable="d"
         Title="Fred Chess game" Height="600" Width="800">
-  <Window.DataContext>
-    <vm:MainViewModel />
-  </Window.DataContext>
-  <Window.Resources>
-    <local:CaseColorConverter x:Key="CaseColorConverter"/>
-  </Window.Resources>
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+    
+    <Grid>
+        <ItemsControl ItemsSource="{Binding Cases}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="8" Columns="8"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
 
-  <Grid>
-    <ItemsControl ItemsSource="{Binding Cases}">
-      <ItemsControl.ItemsPanel>
-        <ItemsPanelTemplate>
-          <UniformGrid Rows="8" Columns="8"/>
-        </ItemsPanelTemplate>
-      </ItemsControl.ItemsPanel>
-
-      <ItemsControl.ItemTemplate>
-        <DataTemplate>
-          <Border BorderBrush="Black" BorderThickness="1"
-        Background="{Binding PositionKey, Converter={StaticResource CaseColorConverter}}">
-            <Viewbox Stretch="Uniform">
-              <TextBlock Text="{Binding Symbole}"
-               FontWeight="Bold"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"
-               FontFamily="Segoe UI Symbol"/>
-            </Viewbox>
-
-          </Border>
-        </DataTemplate>
-      </ItemsControl.ItemTemplate>
-    </ItemsControl>
-  </Grid>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Command="{Binding DataContext.CaseClickCommand, 
+                        RelativeSource={RelativeSource AncestorType=Window}}"
+                            CommandParameter="{Binding}"
+                            Padding="0"
+                            BorderThickness="0"
+                            Background="{Binding BackgroundColor}">
+                        <Viewbox Stretch="Uniform">
+                            <TextBlock Text="{Binding Symbole}"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Segoe UI Symbol"/>
+                        </Viewbox>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
 </Window>
