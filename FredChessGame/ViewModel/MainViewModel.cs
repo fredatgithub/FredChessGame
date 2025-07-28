@@ -3,6 +3,7 @@ using System.Windows.Input;
 using System.Windows;
 using FredChessGame.Model;
 using System.Linq;
+using System;
 
 namespace FredChessGame.ViewModel
 {
@@ -84,20 +85,31 @@ namespace FredChessGame.ViewModel
 
         private bool TryMovePiece(CaseViewModel fromCase, CaseViewModel toCase)
         {
+            Console.WriteLine($"Tentative de déplacement de ({fromCase.Ligne},{fromCase.Colonne}) vers ({toCase.Ligne},{toCase.Colonne})");
+            Console.WriteLine($"Pièce source: {fromCase.Piece?.GetType().Name} {fromCase.Piece?.Couleur}");
+            Console.WriteLine($"Pièce destination: {toCase.Piece?.GetType().Name} {toCase.Piece?.Couleur}");
+            
             // Vérifier si le déplacement est valide selon les règles du jeu
-            if (fromCase.Piece.PeutSeDeplacer(
+            bool peutSeDeplacer = fromCase.Piece.PeutSeDeplacer(
                 fromCase.Ligne, 
                 fromCase.Colonne, 
                 toCase.Ligne, 
                 toCase.Colonne,
-                toCase.Piece)) // Passer la pièce de destination
+                toCase.Piece); // Passer la pièce de destination
+                
+            Console.WriteLine($"Peut se déplacer: {peutSeDeplacer}");
+            
+            if (peutSeDeplacer)
             {
                 // Vérifier s'il y a une pièce sur la case d'arrivée
                 if (toCase.Piece != null)
                 {
                     // Vérifier que ce n'est pas une pièce de la même couleur
                     if (toCase.Piece.Couleur == fromCase.Piece.Couleur)
+                    {
+                        Console.WriteLine("Erreur: Pièce de même couleur sur la case de destination");
                         return false;
+                    }
                     
                     // Manger la pièce adverse
                     toCase.Piece = null;
@@ -107,9 +119,11 @@ namespace FredChessGame.ViewModel
                 toCase.Piece = fromCase.Piece;
                 fromCase.Piece = null;
                 
+                Console.WriteLine("Déplacement réussi");
                 return true;
             }
             
+            Console.WriteLine("Le déplacement n'est pas valide selon les règles du jeu");
             return false;
         }
 
