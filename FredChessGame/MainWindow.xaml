@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FredChessGame"
         mc:Ignorable="d"
         Title="Fred Chess game" Height="600" Width="800">
-    <Grid>
-        
-    </Grid>
+  <Grid Name="ChessBoard">
+    <!-- La grille sera remplie dynamiquement en C# -->
+  </Grid>
 </Window>

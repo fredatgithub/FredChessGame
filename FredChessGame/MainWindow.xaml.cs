@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FredChessGame
 {
@@ -23,6 +12,34 @@ namespace FredChessGame
     public MainWindow()
     {
       InitializeComponent();
+      CreateChessBoard();
     }
+    private void CreateChessBoard()
+    {
+      for (int i = 0; i < 8; i++)
+      {
+        ChessBoard.RowDefinitions.Add(new RowDefinition());
+        ChessBoard.ColumnDefinitions.Add(new ColumnDefinition());
+      }
+
+      for (int row = 0; row < 8; row++)
+      {
+        for (int col = 0; col < 8; col++)
+        {
+          var square = new Border
+          {
+            Background = (row + col) % 2 == 0 ? Brushes.Beige : Brushes.Brown,
+            BorderBrush = Brushes.Black,
+            BorderThickness = new Thickness(1)
+          };
+
+          Grid.SetRow(square, row);
+          Grid.SetColumn(square, col);
+          ChessBoard.Children.Add(square);
+        }
+      }
+    }
+
   }
 }
+
