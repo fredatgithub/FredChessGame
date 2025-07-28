@@ -4,39 +4,106 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:FredChessGame.ViewModel"
-        xmlns:local="clr-namespace:FredChessGame.Converters"
         mc:Ignorable="d"
-        Title="Fred Chess game" Height="600" Width="800">
+        Title="Fred Chess game" Height="700" Width="700"
+        MinWidth="500" MinHeight="500"
+        WindowStartupLocation="CenterScreen">
+    
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
     
-    <Grid>
-        <ItemsControl ItemsSource="{Binding Cases}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Rows="8" Columns="8"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+    <Viewbox Stretch="Uniform">
+        <Grid Width="500" Height="500">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Button Command="{Binding DataContext.CaseClickCommand, 
-                        RelativeSource={RelativeSource AncestorType=Window}}"
-                            CommandParameter="{Binding}"
-                            Padding="0"
-                            BorderThickness="0"
-                            Background="{Binding BackgroundColor}">
-                        <Viewbox Stretch="Uniform">
+            <!-- En-tête (a-h) -->
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,5">
+                <TextBlock Text="a" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="b" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="c" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="d" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="e" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="f" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="g" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="h" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Numéros de ligne à gauche -->
+            <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0">
+                <TextBlock Text="8" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
+                <TextBlock Text="7" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
+                <TextBlock Text="6" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
+                <TextBlock Text="5" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
+                <TextBlock Text="4" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
+                <TextBlock Text="3" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
+                <TextBlock Text="2" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
+                <TextBlock Text="1" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
+            </StackPanel>
+
+            <!-- Échiquier principal -->
+            <ItemsControl Grid.Row="1" Grid.Column="1" 
+                         ItemsSource="{Binding Cases}" 
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="8" Columns="8"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Command="{Binding DataContext.CaseClickCommand, 
+                                RelativeSource={RelativeSource AncestorType=Window}}"
+                                CommandParameter="{Binding}"
+                                Padding="0"
+                                BorderThickness="0"
+                                Width="50"
+                                Height="50"
+                                Background="{Binding BackgroundColor}">
                             <TextBlock Text="{Binding Symbole}"
                                        FontWeight="Bold"
+                                       FontSize="36"
+                                       FontFamily="Segoe UI Symbol"
                                        HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       FontFamily="Segoe UI Symbol"/>
-                        </Viewbox>
-                    </Button>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </Grid>
+                                       VerticalAlignment="Center"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <!-- Numéros de ligne à droite -->
+            <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0">
+                <TextBlock Text="8" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
+                <TextBlock Text="7" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
+                <TextBlock Text="6" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
+                <TextBlock Text="5" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
+                <TextBlock Text="4" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
+                <TextBlock Text="3" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
+                <TextBlock Text="2" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
+                <TextBlock Text="1" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
+            </StackPanel>
+
+            <!-- Pied de page (a-h) -->
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+                <TextBlock Text="a" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="b" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="c" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="d" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="e" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="f" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="g" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+                <TextBlock Text="h" FontWeight="Bold" Width="50" TextAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+    </Viewbox>
 </Window>
