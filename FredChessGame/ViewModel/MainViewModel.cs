@@ -119,7 +119,8 @@ namespace FredChessGame.ViewModel
             {
                 caseVm.IsHighlighted = selectedCase.Piece.PeutSeDeplacer(
                     selectedCase.Ligne, selectedCase.Colonne,
-                    caseVm.Ligne, caseVm.Colonne);
+                    caseVm.Ligne, caseVm.Colonne,
+                    caseVm.Piece); // Passer la pièce de destination
             }
         }
 

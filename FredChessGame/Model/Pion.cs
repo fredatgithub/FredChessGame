@@ -16,22 +16,29 @@ namespace FredChessGame
       int deltaX = x2 - x1;
       int deltaY = Math.Abs(y2 - y1);
 
-      // Déplacement en avant d'une case (sans prise)
-      if (deltaX == direction && deltaY == 0 && pieceDestination == null)
+      // Vérifier si c'est bien un déplacement vers l'avant
+      bool deplacementVersAvant = (Couleur == PieceColor.Blanc && deltaX < 0) || 
+                                 (Couleur == PieceColor.Noir && deltaX > 0);
+      
+      // Normaliser deltaX pour la vérification du nombre de cases
+      int absDeltaX = Math.Abs(deltaX);
+
+      // Déplacement d'une case vers l'avant (sans prise)
+      if (deplacementVersAvant && absDeltaX == 1 && deltaY == 0 && pieceDestination == null)
       {
         if (!_aBouge) _aBouge = true;
         return true;
       }
 
       // Premier déplacement de deux cases (sans prise)
-      if (!_aBouge && deltaX == 2 * direction && deltaY == 0 && pieceDestination == null)
+      if (!_aBouge && deplacementVersAvant && absDeltaX == 2 && deltaY == 0 && pieceDestination == null)
       {
         _aBouge = true;
         return true;
       }
 
       // Prise en diagonale d'une case
-      if (deltaX == direction && deltaY == 1 && pieceDestination != null && pieceDestination.Couleur != this.Couleur)
+      if (absDeltaX == 1 && deltaY == 1 && pieceDestination != null && pieceDestination.Couleur != this.Couleur)
       {
         if (!_aBouge) _aBouge = true;
         return true;
