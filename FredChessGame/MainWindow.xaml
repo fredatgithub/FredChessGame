@@ -26,10 +26,14 @@
         <DataTemplate>
           <Border BorderBrush="Black" BorderThickness="1"
         Background="{Binding PositionKey, Converter={StaticResource CaseColorConverter}}">
-            <TextBlock Text="{Binding Symbole}"
-                                   FontSize="48"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
+            <Viewbox Stretch="Uniform">
+              <TextBlock Text="{Binding Symbole}"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontFamily="Segoe UI Symbol"/>
+            </Viewbox>
+
           </Border>
         </DataTemplate>
       </ItemsControl.ItemTemplate>
