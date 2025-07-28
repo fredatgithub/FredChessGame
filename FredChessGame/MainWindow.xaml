@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:FredChessGame.ViewModel"
         mc:Ignorable="d"
         Title="Fred Chess game" Height="700" Width="700"
-        MinWidth="500" MinHeight="500"
+        MinWidth="600" MinHeight="600"
         WindowStartupLocation="CenterScreen">
     
     <Window.DataContext>
@@ -27,7 +27,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- En-tête (a-h) -->
-            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,5">
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
                 <TextBlock Text="a" FontWeight="Bold" Width="50" TextAlignment="Center"/>
                 <TextBlock Text="b" FontWeight="Bold" Width="50" TextAlignment="Center"/>
                 <TextBlock Text="c" FontWeight="Bold" Width="50" TextAlignment="Center"/>
@@ -39,15 +39,15 @@
             </StackPanel>
 
             <!-- Numéros de ligne à gauche -->
-            <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0">
-                <TextBlock Text="8" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
-                <TextBlock Text="7" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
-                <TextBlock Text="6" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
-                <TextBlock Text="5" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
-                <TextBlock Text="4" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
-                <TextBlock Text="3" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
-                <TextBlock Text="2" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
-                <TextBlock Text="1" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="20"/>
+            <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,35,5,0">
+                <TextBlock Text="8" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="10"/>
+                <TextBlock Text="7" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="10"/>
+                <TextBlock Text="6" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="10"/>
+                <TextBlock Text="5" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="10"/>
+                <TextBlock Text="4" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="10"/>
+                <TextBlock Text="3" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="10"/>
+                <TextBlock Text="2" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="10"/>
+                <TextBlock Text="1" FontWeight="Bold" Height="50" VerticalAlignment="Center" TextAlignment="Right" Width="10"/>
             </StackPanel>
 
             <!-- Échiquier principal -->
@@ -82,19 +82,19 @@
             </ItemsControl>
 
             <!-- Numéros de ligne à droite -->
-            <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0">
-                <TextBlock Text="8" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
-                <TextBlock Text="7" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
-                <TextBlock Text="6" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
-                <TextBlock Text="5" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
-                <TextBlock Text="4" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
-                <TextBlock Text="3" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
-                <TextBlock Text="2" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
-                <TextBlock Text="1" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="20"/>
+            <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,35,5,0">
+                <TextBlock Text="8" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="10"/>
+                <TextBlock Text="7" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="10"/>
+                <TextBlock Text="6" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="10"/>
+                <TextBlock Text="5" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="10"/>
+                <TextBlock Text="4" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="10"/>
+                <TextBlock Text="3" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="10"/>
+                <TextBlock Text="2" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="10"/>
+                <TextBlock Text="1" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="10"/>
             </StackPanel>
 
             <!-- Pied de page (a-h) -->
-            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
                 <TextBlock Text="a" FontWeight="Bold" Width="50" TextAlignment="Center"/>
                 <TextBlock Text="b" FontWeight="Bold" Width="50" TextAlignment="Center"/>
                 <TextBlock Text="c" FontWeight="Bold" Width="50" TextAlignment="Center"/>
