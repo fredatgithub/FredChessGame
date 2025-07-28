@@ -85,8 +85,12 @@ namespace FredChessGame.ViewModel
         private bool TryMovePiece(CaseViewModel fromCase, CaseViewModel toCase)
         {
             // Vérifier si le déplacement est valide selon les règles du jeu
-            if (fromCase.Piece.PeutSeDeplacer(fromCase.Ligne, fromCase.Colonne, 
-                                            toCase.Ligne, toCase.Colonne))
+            if (fromCase.Piece.PeutSeDeplacer(
+                fromCase.Ligne, 
+                fromCase.Colonne, 
+                toCase.Ligne, 
+                toCase.Colonne,
+                toCase.Piece)) // Passer la pièce de destination
             {
                 // Vérifier s'il y a une pièce sur la case d'arrivée
                 if (toCase.Piece != null)
