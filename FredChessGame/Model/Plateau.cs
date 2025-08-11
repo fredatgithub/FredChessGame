@@ -12,8 +12,7 @@ namespace FredChessGame
     {
       Console.WriteLine("Création d'un nouveau plateau...");
       InitialiserPieces();
-      // Les blancs commencent
-      JoueurActuel = PieceColor.Blanc; 
+      JoueurActuel = PieceColor.Blanc; // Les blancs commencent
       Console.WriteLine("Plateau initialisé avec succès.");
     }
 
