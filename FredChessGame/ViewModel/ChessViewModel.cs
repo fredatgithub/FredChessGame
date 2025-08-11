@@ -28,7 +28,8 @@ public class ChessViewModel: INotifyPropertyChanged
     // 1. Si aucune pièce sélectionnée
     if (pieceSelectionnee == null)
     {
-      if (piece != null)
+      // On peut sélectionner une pièce seulement si elle appartient au joueur actuel
+      if (piece != null && piece.Couleur == Plateau.JoueurActuel)
       {
         pieceSelectionnee = (row, col);
         // Ici tu peux déclencher une notification pour surligner
@@ -39,16 +40,17 @@ public class ChessViewModel: INotifyPropertyChanged
       var (selRow, selCol) = pieceSelectionnee.Value;
       var pieceSelec = Plateau.Cases[selRow, selCol];
 
-      // Vérifier si le déplacement est valide (simple pour l'exemple)
+      // Vérifier si le déplacement est valide
       if (pieceSelec != null && pieceSelec.PeutSeDeplacer(selRow, selCol, row, col))
       {
         Plateau.Cases[row, col] = pieceSelec;
         Plateau.Cases[selRow, selCol] = null;
+        Plateau.ChangerDeJoueur(); // Changer de joueur
       }
 
       pieceSelectionnee = null;
 
-      // Ici notifier la mise à jour de l'UI
+      // Notifier la mise à jour de l'UI
       OnPropertyChanged(nameof(Plateau));
     }
   }

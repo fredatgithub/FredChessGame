@@ -6,12 +6,19 @@ namespace FredChessGame
   public class Plateau
   {
     public Piece[,] Cases { get; } = new Piece[8, 8];
+    public PieceColor JoueurActuel { get; private set; }
 
     public Plateau()
     {
       Console.WriteLine("Création d'un nouveau plateau...");
       InitialiserPieces();
+      JoueurActuel = PieceColor.Blanc; // Les blancs commencent
       Console.WriteLine("Plateau initialisé avec succès.");
+    }
+
+    public void ChangerDeJoueur()
+    {
+      JoueurActuel = (JoueurActuel == PieceColor.Blanc) ? PieceColor.Noir : PieceColor.Blanc;
     }
 
     private void InitialiserPieces()
