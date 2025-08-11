@@ -12,7 +12,7 @@ public class ChessViewModel: INotifyPropertyChanged
 
   public ChessViewModel()
   {
-    CaseCliqueeCommand = new RelayCommand(param => OnCaseCliquee(param));
+    CaseCliqueeCommand = new RelayCommand<object>(OnCaseCliquee);
   }
 
   private void OnCaseCliquee(object param)
