@@ -17,8 +17,9 @@ public class ChessViewModel: INotifyPropertyChanged
 
   private void OnCaseCliquee(object param)
   {
-    if (param is not Tuple<int, int> position)
-      return;
+    var position = param as Tuple<int, int>;
+    if (position == null)
+        return;
 
     int row = position.Item1;
     int col = position.Item2;
