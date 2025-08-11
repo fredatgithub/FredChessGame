@@ -93,6 +93,7 @@
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Converters\CaseColorConverter.cs" />
     <Compile Include="ViewModel\CaseViewModel.cs" />
+    <Compile Include="ViewModel\ChessViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

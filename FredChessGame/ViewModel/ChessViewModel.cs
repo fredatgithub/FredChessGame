@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using System.ComponentModel;
+using FredChessGame;
 
 public class ChessViewModel: INotifyPropertyChanged
 {
